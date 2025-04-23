@@ -324,7 +324,7 @@ get_header();
 										<h5>Darrell Goodman <span>- CEO colorlib</span></h5>
 									</div>
 									<!-- Quote Icon -->
-									<div class="quote-icon"><img src="img/core-img/quote.png" alt=""></div>
+									<div class="quote-icon"><img src="<?php echo get_template_directory_uri()?>/img/core-img/quote.png" alt=""></div>
 								</div>
 							</div>
 
@@ -350,7 +350,7 @@ get_header();
 										<h5>Darrell Goodman <span>- CEO colorlib</span></h5>
 									</div>
 									<!-- Quote Icon -->
-									<div class="quote-icon"><img src="img/core-img/quote.png" alt=""></div>
+									<div class="quote-icon"><img src="<?php echo get_template_directory_uri()?>/img/core-img/quote.png" alt=""></div>
 								</div>
 							</div>
 
@@ -376,7 +376,7 @@ get_header();
 										<h5>Darrell Goodman <span>- CEO colorlib</span></h5>
 									</div>
 									<!-- Quote Icon -->
-									<div class="quote-icon"><img src="img/core-img/quote.png" alt=""></div>
+									<div class="quote-icon"><img src="<?php echo get_template_directory_uri()?>/img/core-img/quote.png" alt=""></div>
 								</div>
 							</div>
 

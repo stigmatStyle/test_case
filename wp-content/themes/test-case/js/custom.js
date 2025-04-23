@@ -20,19 +20,25 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     // Обработчик для кнопок фильтра
-    filterBtns.forEach(button => {
-        button.addEventListener('click', function () {
-            selectedFilter = this.getAttribute('data-filter'); // Получаем выбранный фильтр
-            currentPage = 1; // Сброс на первую страницу
-            loadPosts(selectedFilter, currentPage); // Загружаем посты с фильтром
+    if(filterBtns) {
+        filterBtns.forEach(button => {
+            button.addEventListener('click', function () {
+                selectedFilter = this.getAttribute('data-filter'); // Получаем выбранный фильтр
+                currentPage = 1; // Сброс на первую страницу
+                loadPosts(selectedFilter, currentPage); // Загружаем посты с фильтром
+            });
         });
-    });
+    }
+
 
     // Обработчик для кнопки Load More
-    loadMoreBtn.addEventListener('click', function () {
-        currentPage++; // Увеличиваем номер страницы
-        loadPosts(selectedFilter, currentPage); // Загружаем посты с выбранным фильтром
-    });
+    if(loadMoreBtn) {
+        loadMoreBtn.addEventListener('click', function () {
+            currentPage++; // Увеличиваем номер страницы
+            loadPosts(selectedFilter, currentPage); // Загружаем посты с выбранным фильтром
+        });
+    }
+
 
     // Инициализация загрузки постов
     loadPosts(selectedFilter, currentPage);
