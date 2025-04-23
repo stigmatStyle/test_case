@@ -57,30 +57,28 @@ function loadPosts(filter, page) {
     })
         .then(res => res.text())
         .then(data => {
-            if(data) {
-                const container = document.getElementById('portfolio-posts');
-                if (data.trim() !== '') {
-                    if (page === 1) {
-                        container.innerHTML = data; // Если это первая страница, заменяем весь контент
-                    } else {
-                        container.insertAdjacentHTML('beforeend', data); // Добавляем новые посты
-                    }
-
-                    // Перезапускаем Isotope после добавления новых постов
-                    $grid.isotope('reloadItems').isotope();
-
-                    // Проверяем, сколько элементов вернулось
-                    const newItems = (data.match(/single-portfolio-item/g) || []).length;
-
-                    // Если вернулось меньше 4 постов, скрываем кнопку Load More
-                    if (newItems < 4) {
-                        document.querySelector('.load-more').style.display = 'none';
-                    } else {
-                        document.querySelector('.load-more').style.display = 'inline-block';
-                    }
+            const container = document.getElementById('portfolio-posts');
+            if (data.trim() !== '' && container) {
+                if (page === 1) {
+                    container.innerHTML = data; // Если это первая страница, заменяем весь контент
                 } else {
-                    document.querySelector('.load-more').style.display = 'none';
+                    container.insertAdjacentHTML('beforeend', data); // Добавляем новые посты
                 }
+
+                // Перезапускаем Isotope после добавления новых постов
+                $grid.isotope('reloadItems').isotope();
+
+                // Проверяем, сколько элементов вернулось
+                const newItems = (data.match(/single-portfolio-item/g) || []).length;
+
+                // Если вернулось меньше 4 постов, скрываем кнопку Load More
+                if (newItems < 4) {
+                    document.querySelector('.load-more').style.display = 'none';
+                } else {
+                    document.querySelector('.load-more').style.display = 'inline-block';
+                }
+            } else {
+                document.querySelector('.load-more').style.display = 'none';
             }
         });
 }
