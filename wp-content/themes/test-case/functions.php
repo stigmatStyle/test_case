@@ -96,3 +96,13 @@ function load_more_portfolio() {
 }
 add_action('wp_ajax_load_more_portfolio', 'load_more_portfolio');
 add_action('wp_ajax_nopriv_load_more_portfolio', 'load_more_portfolio');
+
+
+add_filter( 'wp_get_attachment_image_attributes', 'remove_lazy_loading_for_featured_image', 10, 3 );
+
+function remove_lazy_loading_for_featured_image( $attr, $attachment, $size ) {
+	if ( $size === 'full' ) {
+		unset( $attr['loading'] );
+	}
+	return $attr;
+}
