@@ -1,7 +1,5 @@
 <?php
 
-$field = get_field( 'option_field', 'option' );
-
 ?>
 <!DOCTYPE html>
 <html>
