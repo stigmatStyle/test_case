@@ -20,7 +20,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     // Обработчик для кнопок фильтра
-    if(filterBtns) {
+    if (filterBtns) {
         filterBtns.forEach(button => {
             button.addEventListener('click', function () {
                 selectedFilter = this.getAttribute('data-filter'); // Получаем выбранный фильтр
@@ -32,7 +32,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
     // Обработчик для кнопки Load More
-    if(loadMoreBtn) {
+    if (loadMoreBtn) {
         loadMoreBtn.addEventListener('click', function () {
             currentPage++; // Увеличиваем номер страницы
             loadPosts(selectedFilter, currentPage); // Загружаем посты с выбранным фильтром
@@ -78,7 +78,11 @@ function loadPosts(filter, page) {
                     document.querySelector('.load-more').style.display = 'inline-block';
                 }
             } else {
-                document.querySelector('.load-more').style.display = 'none';
+                let button = document.querySelector('.load-more');
+                if (button) {
+                    button.style.display = 'none';
+                }
+
             }
         });
 }
